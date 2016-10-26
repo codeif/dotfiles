@@ -37,6 +37,9 @@ set nobackup
 set nowritebackup
 set noswapfile
 
+" 插入状态下paste和nopaste状态的切换
+set pastetoggle=<F9>
+
 " 快速切换窗口
 map <C-j> <C-w>j
 map <C-k> <C-w>k
