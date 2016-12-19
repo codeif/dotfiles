@@ -92,18 +92,26 @@ autocmd FileType python noremap <buffer> <C-b> :exec '!python' shellescape(@%, 1
 " https://segmentfault.com/a/1190000000405249
 " https://github.com/GTxx/dotfiles/blob/master/.vimrc
 if has('python')
-py << EOF
+    command! -nargs=1 Python python <args>
+elseif has('python3')
+    command! -nargs=1 Python python3 <args>
+else
+    echo "Error: Requires Vim compiled with +python or +python3"
+    finish
+endif
+
+Python << EOF
+
 import os.path
 import sys
 import vim
 
 def get_py(venv):
-   for name in os.listdir(venv + '/lib'):
-	if name.startswith('python'):
-	    return name
+    for name in os.listdir(venv + '/lib'):
+        if name.startswith('python'):
+            return name
 
 if 'VIRTUAL_ENV' in os.environ:
     venv = os.environ['VIRTUAL_ENV']
     sys.path.insert(0, os.path.join(venv, 'lib', get_py(venv), 'site-packages'))
 EOF
-endif
