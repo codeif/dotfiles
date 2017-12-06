@@ -2,10 +2,6 @@
 
 ## 使用方法:
 
-- 依赖ctags 
-
-系统中需要安装ctags, mac os x可以使用brew安装, ubuntu输入ctags会提示安装命令: sudo apt-get install exuberant-ctags
-
 - 依赖[jedi](https://github.com/davidhalter/jedi) 
 
 安装jedi:
@@ -39,8 +35,6 @@
 - 目录树插件: [nerdtree](https://github.com/scrooloose/nerdtree)
 
 - python代码格式: [vim-flake8](https://github.com/nvie/vim-flake8)
-
-- tag: [taglist](https://github.com/vim-scripts/taglist.vim)
 
 - awesome Python autocompletion with VIM: [jedi-vim](https://github.com/davidhalter/jedi-vim)
 
