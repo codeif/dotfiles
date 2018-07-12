@@ -54,7 +54,7 @@ nnoremap <C-t>     :tabnew<CR>
 " set auto load file when be edited by other program
 " set autoread
 
-set cmdheight=2
+" set cmdheight=2
 
 " show status
 " set laststatus=2
@@ -70,48 +70,5 @@ filetype plugin indent on
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$']
 
-" :Tlist              调用TagList
-" taglist  按F2按钮，出现taglist的窗口
-nnoremap <silent> <F2> :TlistToggle<CR><CR>
-" let Tlist_Show_One_File=0                    " 只显示当前文件的tags
-" let Tlist_Exit_OnlyWindow=1                  " 如果Taglist窗口是最后一个窗口则退出Vim
-let Tlist_Use_Right_Window=1                 " 在右侧窗口中显示
-" let Tlist_File_Fold_Auto_Close=1             " 自动折叠
-
-" flake8快捷键, 默认是F7
-autocmd FileType python map <buffer> <F3> :call Flake8()<CR>
-
-" jedi https://github.com/davidhalter/jedi-vim
-" let g:jedi#completions_command = "<C-Space>"
-let g:jedi#smart_auto_mappings = 0
-let g:jedi#popup_on_dot = 0
-
 autocmd FileType python noremap <buffer> <C-b> :exec '!python' shellescape(@%, 1)<CR>
 
-" Add the virtualenv's site-packages to vim path
-" https://segmentfault.com/a/1190000000405249
-" https://github.com/GTxx/dotfiles/blob/master/.vimrc
-if has('python')
-    command! -nargs=1 Python python <args>
-elseif has('python3')
-    command! -nargs=1 Python python3 <args>
-else
-    echo "Error: Requires Vim compiled with +python or +python3"
-    finish
-endif
-
-Python << EOF
-
-import os.path
-import sys
-import vim
-
-def get_py(venv):
-    for name in os.listdir(venv + '/lib'):
-        if name.startswith('python'):
-            return name
-
-if 'VIRTUAL_ENV' in os.environ:
-    venv = os.environ['VIRTUAL_ENV']
-    sys.path.insert(0, os.path.join(venv, 'lib', get_py(venv), 'site-packages'))
-EOF
