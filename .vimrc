@@ -1,3 +1,4 @@
+set nocompatible
 " http://vim.wikia.com/wiki/Change_the_color_scheme
 " colorscheme morning
 " http://vim.wikia.com/wiki/Switch_color_schemes
