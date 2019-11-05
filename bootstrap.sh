@@ -25,3 +25,12 @@ else
     fi;
 fi;
 unset doIt;
+unset REPLY;
+
+# 设置git user
+read -p "是否设置git user? (y/n) " -n 1;
+echo "";
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    git config --global user.name codeif
+    git config --global user.email me@codeif.com
+fi
