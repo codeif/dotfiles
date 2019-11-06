@@ -14,20 +14,22 @@
 
 - 插件管理: [vim-pathogen](https://github.com/tpope/vim-pathogen)
 
-
-
 ## submodule中包含下面的库
 
 - 目录树插件: [nerdtree](https://github.com/scrooloose/nerdtree)
 
-## git
+## shell中显示git分支
 
-- 默认没设置config user.email, uer.name, 可以根据git提示设置全局的或者项目的user.name和user.email
-
-## shell中显示git分支(https://github.com/jimeh/git-aware-prompt)
+https://github.com/jimeh/git-aware-prompt
 
 ## 删除submodule
 
     git submodule deinit -f -- .vim/bundle/jedi-vim
     git rm -f .vim/bundle/jedi-vim/
     rm -rf .git/modules/.vim/bundle/jedi-vim/
+
+## 其他
+
+如果要显示执行的命令
+
+    bash -x myscript.sh
