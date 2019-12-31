@@ -4,7 +4,7 @@
 
 执行下面的命令
 
-    git clone https://github.com/wasw100/dotfiles.git
+    git clone https://github.com/codeif/dotfiles.git
     cd dotfiles
     ./bootstrap.sh
 
