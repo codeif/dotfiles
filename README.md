@@ -33,3 +33,6 @@ https://github.com/jimeh/git-aware-prompt
 如果要显示执行的命令
 
     bash -x myscript.sh
+
+
+如果git submodule初始化较慢，可以尝试bootstrap2脚本
