@@ -5,7 +5,12 @@ cd "$(dirname "${BASH_SOURCE}")";
 function doIt() {
     rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "bootstrap2.sh" \
         --exclude "README.md" --exclude "LICENSE-MIT.txt" -avh --no-perms . ~;
-    mkdir -p ~/.vim/autoload && curl -LSo ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim;
+    # mkdir -p ~/.vim/autoload && curl -LSo ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim;
+    curl -LSo tmp.zip https://codeload.github.com/tpope/vim-pathogen/zip/master && \
+    unzip tmp.zip && \
+    mv vim-pathogen-master/autoload/pathogen.vim ~/.vim/autoload/pathogen.vim && \
+    rm -rf vim-pathogen-master && \
+    rm -rf tmp.zip
 }
 
 rm -rf .vim
